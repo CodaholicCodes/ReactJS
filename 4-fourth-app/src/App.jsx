@@ -5,8 +5,15 @@ function App() {
 
   return (
     <>
-    <p className='text-primary bg-success-subtle'>This is a piece of text</p>
-    <h2 className="text-primary bg-success-subtle m-3">Margin Examples</h2>
+ <div className="m-3">
+  <ol className="list-group-numbered">
+    <li className="list-group-item">Home</li>
+    <li className="list-group-item">Features</li>
+    <li className="list-group-item">Contacts</li>
+    <li className="list-group-item shadow-lg ">Products</li>
+  </ol>
+  
+ </div>
     </>
   )
 }
