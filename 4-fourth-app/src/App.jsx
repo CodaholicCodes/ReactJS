@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-
+import {Camera} from 'lucide-react';
 function App() {
 
   return (
@@ -14,8 +14,10 @@ function App() {
   </ol>
   
  </div>
+ <Camera color='red' size={72} strokeWidth={1}/>
     </>
   )
 }
 
 export default App
+
