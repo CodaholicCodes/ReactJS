@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoItem from './ToDoItem';
+
 import Button from './button';
 const ListModifier = ({itemDetails,deleteHandler}) => {
 

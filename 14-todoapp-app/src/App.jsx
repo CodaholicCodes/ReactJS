@@ -3,7 +3,7 @@ import './App.css'
 import { useState } from 'react';
 import AddTodo from './assets/AddTodo';
 import AppName from './assets/AppName';
-import TodoItem from './assets/ToDoItem';
+import TodoItem from './assets/TodoItem';
 
 function App() {
 
