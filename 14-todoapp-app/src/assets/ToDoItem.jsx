@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ListModifier from "./ListModifier";
-const TodoItem = ({toDoItems,deleteItemHandler}) => {
-  return toDoItems.map((item) => (
-    <ListModifier key={item.toDoText} itemDetails={item} deleteHandler={deleteItemHandler}/>
+import { TodoItemsContext } from "../store/TodoItemsContext";
+const TodoItem = () => {
+  const {todoItems}=useContext(TodoItemsContext);
+  return todoItems.map((item) => (
+    <ListModifier key={item.toDoText} itemDetails={item}/>
   ));
 };
 export default TodoItem;

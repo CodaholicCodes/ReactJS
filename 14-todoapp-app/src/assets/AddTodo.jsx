@@ -1,7 +1,9 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import "./TodoList.css";
 import Button from "./button";
-const AddTodo = ({addItemhandler}) => {
+import { TodoItemsContext } from "../store/TodoItemsContext";
+const AddTodo = () => {
+ const {addToDoItemsHandler} =useContext(TodoItemsContext);
 const todoTextInput=useRef();
 const todoDateInput=useRef();
   const onClickHandler=()=>{
@@ -14,7 +16,7 @@ const todoDateInput=useRef();
     alert("Please Enter Valid Data");
     return;
  }
-addItemhandler(Math.random() * 10,todoText,todoDate);
+addToDoItemsHandler(Math.random() * 10,todoText,todoDate);
 
   }
   return (
