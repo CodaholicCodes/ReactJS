@@ -6,19 +6,30 @@ const AddTodo = () => {
  const {addToDoItemsHandler} =useContext(TodoItemsContext);
 const todoTextInput=useRef();
 const todoDateInput=useRef();
-  const onClickHandler=()=>{
-        console.log("Add Button Clicked");
- const todoText=todoTextInput.current.value;
- const todoDate=todoDateInput.current.value;
- todoTextInput.current.value='';
- todoDateInput.current.value='';
- if(!todoText || !todoDate){
-    alert("Please Enter Valid Data");
-    return;
- }
-addToDoItemsHandler(Math.random() * 10,todoText,todoDate);
+const addHandler=()=>{
+  const todoText=todoTextInput.current.value;
+  const todoDate=todoDateInput.current.value;
+  todoDateInput.current.value='';
+  todoTextInput.current.value='';
+ fetch('http://localhost:3000/todos', {
+  method: 'POST', /* or POST/PUT/PATCH/DELETE */
+  headers: { 
+    'Content-Type': 'application/json'
+  }, 
+  body : JSON.stringify({
+    task : todoText,
+    date :todoDate
+  })
+})
+.then(res => res.json())
+.then((item)=>{
+  const {id,todoText,todoDate}=item.map({id : item.id ,todoText : item.task ,todoDate : item.date});
+  addToDoItemsHandler(id,todoText,todoDate);
+}
+)
+}
 
-  }
+  
   return (
     <div className="container text-center">
       <div className="row kg-row">
@@ -32,10 +43,11 @@ addToDoItemsHandler(Math.random() * 10,todoText,todoDate);
 
         </div>
         <div className="col-2">
- <Button btnType="success" btnText="Add" handler={onClickHandler}/>
+ <Button btnType="success" btnText="Add" handler={addHandler}/>
 
         </div>
       </div>
     </div>
   );
+}
 export default AddTodo;

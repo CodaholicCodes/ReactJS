@@ -5,6 +5,7 @@ import AddTodo from './assets/AddTodo';
 import AppName from './assets/AppName';
 import TodoItem from './assets/TodoItem';
 import { TodoItemsProvider } from './store/TodoItemsContext';
+import LoadItems from './store/LoadItems';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 <center>
   <AppName />
 <AddTodo />
+<LoadItems />
 <TodoItem />
   </center>
    </TodoItemsProvider>
