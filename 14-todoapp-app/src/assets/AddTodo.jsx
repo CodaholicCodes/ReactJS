@@ -38,5 +38,4 @@ addToDoItemsHandler(Math.random() * 10,todoText,todoDate);
       </div>
     </div>
   );
-};
 export default AddTodo;
